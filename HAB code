@@ -1,0 +1,20 @@
+char data;
+int relayPin = 8;
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    data = Serial.read();
+
+    if (data == '1') {
+      digitalWrite(relayPin, HIGH);
+    }
+    if (data == '0') {
+      digitalWrite(relayPin, LOW);
+    }
+  }
+}
