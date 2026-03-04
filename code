@@ -1,0 +1,26 @@
+char data;
+int ledPin = 13;
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if (Serial.available() > 0)
+  {
+    data = Serial.read();
+
+    if (data == '1')
+    {
+      digitalWrite(ledPin, HIGH);
+    }
+
+    if (data == '0')
+    {
+      digitalWrite(ledPin, LOW);
+    }
+  }
+}
